@@ -46,4 +46,4 @@ def register():
     
     return make_response("Invalid Authentication", 401)
 
-app.run(host="0.0.0.0", port=8080)
+# app.run(host="0.0.0.0", port=8080)
