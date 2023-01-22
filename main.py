@@ -11,10 +11,14 @@ database = Database(connectionString)
 # print(details)
 
 app = Flask(__name__)
-app.secret_key = "472389fhdsuf2378ghf"
+# app.secret_key = "472389fhdsuf2378ghf"
+
+@app.route("/", methods=["POST", "GET"])
+def home():
+    return "Why are you here??"
 
 @app.route("/register", methods=["POST"])
-def home():
+def register():
     #/register?email={EMAIL}&password={PASSWORD}&fullname={FULLNAME}
 
     email = request.headers["email"]
@@ -23,7 +27,7 @@ def home():
 
     secreyKey = request.headers.get("authentication-key")
 
-    if secreyKey == "123":
+    if secreyKey == "DSH$32Rfdhu@'34":
         pattern = re.compile(r"\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Z|a-z]{2,}\b")
         validEmail = bool(re.fullmatch(pattern, email))
 
