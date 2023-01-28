@@ -21,9 +21,9 @@ def home():
 def register():
     #/register?email={EMAIL}&password={PASSWORD}&fullname={FULLNAME}
 
-    email = request.headers["email"]
-    password = request.headers["password"]
-    fullname = request.headers["fullname"]
+    email = request.args.get("email")
+    password = request.args.get("password")
+    fullname = request.args.get("fullname")
 
     secreyKey = request.headers.get("authentication-key")
 
@@ -46,5 +46,5 @@ def register():
     
     return make_response("Invalid Authentication", 401)
 
-# app.run(host="0.0.0.0", port=8080)
-app.run(debug=False)
+app.run(host="0.0.0.0", port=8080)
+# app.run(debug=False)
